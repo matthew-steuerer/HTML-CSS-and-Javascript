@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <!--
+      New Perspectives on HTML5 and CSS3, 7th Edition
+      Tutorial 7
+      Case Problem 2
+
+      Spice Bowl Payment Form
+      Author: Matthew Steuerer
+      Date: 4/7/2020  
+
+      Filename:   sb_payment.html
+
+   -->
+   
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <title>Spice Bowl Payment Form</title>
+   <link href="sb_reset.css" rel="stylesheet" />
+   <link href="sb_styles.css" rel="stylesheet" />
+   <link rel="stylesheet" type="text/css" href="sb_forms.css" />
+   <link rel="stylesheet" type="text/css" href="sb_validate.css" />
+   <link rel="stylesheet" type="text/css" href="sb_script.js" />
+</head>
+
+<body>
+   <header>
+      <img src="sb_logo.png" alt="The Spice Bowl" />
+      <form id="login" method="POST" action="http://www.example.com/sb/login">
+         <label for="username">Username</label>
+         <input type="text" name="username" id="userBox" placeholder="username" />
+         <label for="password">Password</label>
+         <input type="text" name="password" id="pwdBox" placeholder="password" />
+      </form>
+      <nav> <a id="navicon" href="#"><img src="sb_navicon.png" alt="" /></a>
+         <ul>
+            <li><a href="#">Spices</a></li>
+            <li><a href="#">Recipes</a></li>
+            <li><a href="#">My Cart</a></li>
+            <li><a href="#">My Account</a></li>
+            <li><a href="#">Contact Us</a></li>
+         </ul>
+      </nav>
+   </header>
+   
+   <section>
+      <h1>Payment Form</h1>
+      <form id="payment" action="http://www.example.com/sb/payment" method="POST">
+         <fieldset id="billing">
+            <legend>Billing Information (required)</legend>
+            <label for="fName">First Name</label>
+            <input type="text" name="fName" id="firstBox" required />
+            <label for="lname">Last Name</label>
+            <input type="text" name="lName" id="lastBox" required />
+            <label for="street">Street Address</label>
+            <input type="text" name="street" id="streetBox" required />
+            <label for="street2">Street Address 2</label>
+            <input type="text" name="street2" id="streetBox2" />
+            <label for="city">City</label>
+            <input type="text" name="city" id="cityBox" required />
+            <label for="state">State</label>
+            <input type="text" name="state" id="stateBox" list="states" required />
+            <datalist id="states">
+               <option value="AL" />
+               <option value="AK" />
+               <option value="AZ" />
+               <option value="AR" />
+               <option value="CA" />
+               <option value="CO" />
+               <option value="CT" />
+               <option value="DE" />
+               <option value="FL" />
+               <option value="GA" />
+               <option value="HI" />
+               <option value="ID" />
+               <option value="IL" />
+               <option value="IN" />
+               <option value="IA" />
+               <option value="KS" />
+               <option value="KY" />
+               <option value="LA" />
+               <option value="ME" />
+               <option value="MD" />
+               <option value="MA" />
+               <option value="MI" />
+               <option value="MN" />
+               <option value="MS" />
+               <option value="MO" />
+               <option value="MT" />
+               <option value="NE" />
+               <option value="NV" />
+               <option value="NH" />
+               <option value="NJ" />
+               <option value="NM" />
+               <option value="NY" />
+               <option value="NC" />
+               <option value="ND" />
+               <option value="OH" />
+               <option value="OK" />
+               <option value="OR" />
+               <option value="PA" />
+               <option value="RI" />
+               <option value="SC" />
+               <option value="SD" />
+               <option value="TN" />
+               <option value="TX" />
+               <option value="UT" />
+               <option value="VT" />
+               <option value="VA" />
+               <option value="WA" />
+               <option value="WV" />
+               <option value="WI" />
+               <option value="WY" />
+            </datalist>
+            <label>Zip/Postal Code</label>
+            <input type="text" name="zip" id="zipBox" pattern="^\d{5}(-\d{4})?$" />
+            <label for="country">Country</label>
+            <input type="text" name="country" id="countryBox" value="United States" required />
+            <label for="phone">Phone</label>
+            <input type="tel" name="phone" id="phoneBox" pattern="^\d{10}$|^(\(\d{3}\)\s*)?\d{3}[\s-]?\d{4}$" required />
+         </fieldset>
+         <fieldset id="creditCard">
+            <legend>Credit Card (required)</legend>
+            <fieldset>
+               <label for="amex" class="cardLabel">
+                  <input type="radio" name="cCard" value="amex" />
+                  <img src="sb_amex.png" alt="american express" />
+               </label>
+               <label for="discover" class="cardLabel">
+                  <input type="radio" name="cCard" value="discover" />
+                  <img src="sb_discover.png" alt="discover" />
+               </label>
+               <label for="mastercard" class="cardLabel">
+                  <input type="radio" name="cCard" value="mastercard" />
+                  <img src="sb_master.png" alt="mastercard" />
+               </label>
+               <label for="visa" class="cardLabel">
+                  <input type="radio" name="cCard" value="visa" />
+                  <img src="sb_visa.png" alt="visa" />
+               </label>
+            </fieldset>
+            <!-- According to the instructions on the PDF, these credit card fields are supposed to be after the 
+                 Credit Card field set but that doesn't make any sense; the instructions ALSO say "after the credit
+                 card field set" in two instructions (13 and 18); possibly a misprint?? -->
+            <label for="cardBox">Credit Card Number</label>
+            <input type="text" name="cardBox" id="cardBox" 
+            pattern="^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$" required />
+            <label for="monthList">Expiration Date</label>
+            <select id="monthList" name="monthList" required>
+               <option value="">--Month--</option>
+               <option value="1">January (01)</option>
+               <option value="2">February (02)</option>
+               <option value="3">March (03)</option>
+               <option value="4">April (04)</option>
+               <option value="5">May (05)</option>
+               <option value="6">June (06)</option>
+               <option value="7">July (07)</option>
+               <option value="8">August (08)</option>
+               <option value="9">September (09)</option>
+               <option value="10">October (10)</option>
+               <option value="11">November (11)</option>
+               <option value="12">December (12)</option>
+            </select>
+            <select id="yearList" name="yearList" required>
+               <option value="">--Year--</option>
+               <option value="2017">2017</option>
+               <option value="2018">2018</option>
+               <option value="2019">2019</option>
+               <option value="2020">2020</option>
+               <option value="2021">2021</option>
+            </select>
+            <label for="cscBox">CSC</label>
+            <input type="text" name="cscBox" id="cscBox" pattern="^\d{3}$" placeholder="nnn" maxlength="3" required />
+         </fieldset>
+         <button type="submit"><img src="sb_button.png" alt="submit" /></button>
+      </form>
+      <aside>
+         <h1>Menu Ideas</h1>
+         <h2>Salt-Roasted Pecans</h2>
+         <ul>
+            <li>2 cups pecans</li>
+            <li>3 Tbs. butter, melted</li>
+            <li>1 1/4 tsp. fine sea salt</li>
+         </ul>
+         <p>Preheat oven to 325&deg;. Toss pecans and butter together; 
+            add salt and toss again.  Spread in a single layer on a baking 
+            sheet.  Bake about 15 minutes.  Cook on baking sheet.
+         </p>
+
+         <h2>Dried Beef Sticks</h2>
+         <ul>
+            <li>5 lbs. ground chuck</li>
+            <li>5 Tbs. quick salt</li>
+            <li>3 tsp. mustard seed</li>
+            <li>2 tsp. granulated garlic</li>
+            <li>2 tsp. cracked pepper</li>
+            <li>1 Tbs. hickory smoked salt</li>
+            <li>1 Tbs. liquid smoke</li>
+         </ul>
+         <p>Mix beef and season.  Place in a large covered container 
+            for three days.  
+            On third day, shape beef into sticks, and bake at 150&deg; for 
+            8 hours (turn half-way through).
+         </p>
+      </aside>
+      
+   </section>
+
+   <footer>
+      <nav>
+         <ul>
+            <li class="newgroup"><a href="#">Home</a></li>
+            <li><a href="#">Keyword Search</a></li>
+      
+            <li class="newgroup"><a href="#">Spices</a></li>
+            <li><a href="#">Seasonings</a></li>
+            <li><a href="#">Blends</a></li>
+            <li><a href="#">Salts &amp; Peppers</a></li>
+            <li><a href="#">Popcorn Seasonings</a></li>
+            <li><a href="#">Dip Mixes</a></li>
+            <li><a href="#">Bulk Spices</a></li>
+            <li><a href="#">Extracts</a></li>
+            <li><a href="#">Flavorings</a></li>
+      
+            <li class="newgroup"><a href="#">Spice Jars</a></li>
+            <li><a href="#">Spice Jar Labels</a></li>
+            <li><a href="#">Spice Sets</a></li>
+            <li><a href="#">Mortar &amp; Pestles</a></li>
+      
+            <li class="newgroup"><a href="#">Cookbooks</a></li>
+            <li><a href="#">Online Recipes</a></li>
+            <li><a href="#">Forums</a></li>
+      
+            <li class="newgroup"><a href="#">My Account</a></li>
+            <li><a href="#">Checkout</a></li>
+            <li><a href="#">Order History</a></li>
+            <li><a href="#">Shipping Info</a></li>
+      
+            <li class="newgroup"><a href="#">Tech Support</a></li>
+            <li><a href="#">Hours</a></li>
+            <li><a href="#">Contact Us</a></li>
+         </ul>
+      </nav>
+   </footer>         
+</body>
+</html>
